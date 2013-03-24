@@ -1,11 +1,17 @@
 class Store
 
-    getUrl: () ->
-        window.localStorage.url
+  incomingTasks: () ->
+    json = window.localStorage.tasks
+    window.JSON.parse(json) if json
 
-    setUrl: (value) ->
-        window.localStorage.url = value
+  addIncomingTasks: (value) ->
+    @clearIncoming()
+    json = window.JSON.stringify(value)
+    window.localStorage.tasks = json
+
+  clearIncoming: ->
+    window.localStorage.removeItem('tasks')
 
 angular.module('Store', []).factory('store', ($window) ->
-    new Store
+  new Store
 )

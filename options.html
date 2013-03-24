@@ -2,7 +2,7 @@
 <html lang="en" ng-app="application" ng-csp>
 <head>
     <meta charset="utf-8">
-    <title>Bamboo status settings</title>
+    <title>Coursera Videos Downloader</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -26,7 +26,7 @@
         }
 
         .fork-me {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
         }
@@ -35,9 +35,6 @@
             padding-top: 60px;
         }
 
-        .valid-false {
-            display: none;
-        }
     </style>
     <link href="assets/vendors/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -48,8 +45,8 @@
 
     <link rel="shortcut icon" href="assets/vendors/bootstrap/ico/favicon.ico">
 
+    <script src="assets/vendors/bootstrap/js/jquery.js"></script>
     <script src="assets/vendors/bootstrap/js/bootstrap.js"></script>
-    <script src="assets/vendors/jquery.min.js"></script>
     <script src="assets/vendors/angular/angular-1.0.1.js"></script>
 
     <script src="lib/services/classes.js"></script>
@@ -62,35 +59,80 @@
     <script src="lib/application.js"></script>
 </head>
 
-<body>
+<body ng-controller="SettingsController">
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href="#">Coursera Videos Downloader <i class="icon-star icon-white"></i></a>
-            <a class="pull-right loading hide" href="#"><img src="assets/images/loading.gif" width="22px" height="22px"/></a>
+            <a class="brand" href="#">Coursera Videos Downloader <i class="icon-star"></i></a>
+            <a class="pull-right loading hide" href="#"><img src="assets/images/loading.gif" width="22px"
+                                                             height="22px"/></a>
         </div>
     </div>
 </div>
 
 <div class="wrap">
-    <div class="container" ng-controller="SettingsController">
+    <div class="container">
 
         <div class="row">
-            <div class="span12 alerts">
-
+            <div class="span12" ng-show="hasIncomingTasks">
+                <h4>Current tasks <span class="badge badge-info">{{uncompleted()}}</span></h4>
+                <ul class="unstyled">
+                    <li ng-repeat="task in tasks">
+                        <span><i class="{{taskIcon(task)}}"></i> {{task.filename}}</span>
+                    </li>
+                </ul>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <h3>Current tasks</h3>
+            <div class="span12" ng-hide="hasIncomingTasks">
+                <div class="alert alert-block">
+                    <h4>Warning!</h4>
+                    Could not find sections and lectures. Please navigate to "Videos and Reading Notes" section and try again.<br>
+                    Link should be https://class.coursera.org/&lt;course&gt;/lecture/index
+                </div>
             </div>
         </div>
 
         <a href="https://github.com/ivan-dyachenko/bamboo-status" target="_blank" class="fork-me">
             <img border="0" src="github-fork-me.png"/>
         </a>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="incomingModal" class="modal show fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{{incomings.course}}</h3>
+    </div>
+    <div class="modal-body">
+        <p>
+            Video filename pattern:<br/>
+            <label>
+                <input type="text" ng-model="filePattern" class="span5"/>
+            </label>
+        </p>
+
+        <ul class="unstyled">
+            <li ng-repeat="(sectionIndex, section) in incomings.sections">
+                <span><b>{{section.title}}</b></span>
+                <ul class="unstyled">
+                    <li ng-repeat="(lectureIndex, lecture) in section.lectures">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="lecture.selected">{{filename(section, lecture,
+                            sectionIndex, lectureIndex)}}
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn" ng-click="selectAll()"><i class="icon-star-empty"></i> Select All</button>
+        <button class="btn btn" ng-click="selectNone()">Select None</button>
+        <button class="btn" aria-hidden="true" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" ng-click="download()"><i class="icon-circle-arrow-down icon-white"></i> Download
+        </button>
     </div>
 </div>
 

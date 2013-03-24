@@ -7,7 +7,7 @@
         "page" : "background.html"
     },
     "icons"            : {
-        "128" : "assets/images/bamboo.png"
+        "128" : "assets/images/university.png"
     },
     "options_page"     : "options.html",
     "browser_action"   : {
