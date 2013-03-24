@@ -17,6 +17,18 @@ This extension uses experimental API of Chrome. You need to install [Chrome Dev 
 
 And enable `Experimental Extension APIs` in `chrome://flags/`
 
+How to install
+--------------
+
+Make sure, that you have installed Chrome Dev channel. In your terminal run
+
+```
+git clone git@github.com:ivan-dyachenko/coursera-downloader.git
+```
+
+In Google Chrome open `chrome://extensions/` and click `Load unpacked extension…` button. Next select `coursera-downloader` folder.
+
+
 How to build
 ------------
 
