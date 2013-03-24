@@ -1,0 +1,7 @@
+{
+    "name": "coursera-downloaderm",
+
+    "dependencies": {
+        "coffee-script": ""
+    }
+}

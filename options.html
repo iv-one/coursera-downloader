@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="application" ng-csp>
+<head>
+    <meta charset="utf-8">
+    <title>Bamboo status settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="assets/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/vendors/bootstrap/css/docs.css" rel="stylesheet">
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .loading {
+            padding-top: 9px;
+        }
+
+        .alerts {
+            overflow: hidden;
+            height: 1px;
+        }
+
+        .fork-me {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .wrap {
+            padding-top: 60px;
+        }
+
+        .valid-false {
+            display: none;
+        }
+    </style>
+    <link href="assets/vendors/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="assets/vendors/bootstrap/ico/favicon.ico">
+
+    <script src="assets/vendors/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/vendors/jquery.min.js"></script>
+    <script src="assets/vendors/angular/angular-1.0.1.js"></script>
+
+    <script src="lib/services/classes.js"></script>
+
+    <script src="lib/controller/badge.js"></script>
+    <script src="lib/controller/settings.js"></script>
+
+    <script src="lib/store.js"></script>
+    <script src="lib/badge.js"></script>
+    <script src="lib/application.js"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="#">Coursera Videos Downloader <i class="icon-star icon-white"></i></a>
+            <a class="pull-right loading hide" href="#"><img src="assets/images/loading.gif" width="22px" height="22px"/></a>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="container" ng-controller="SettingsController">
+
+        <div class="row">
+            <div class="span12 alerts">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <h3>Current tasks</h3>
+            </div>
+        </div>
+
+        <a href="https://github.com/ivan-dyachenko/bamboo-status" target="_blank" class="fork-me">
+            <img border="0" src="github-fork-me.png"/>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
