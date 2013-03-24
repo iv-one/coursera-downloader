@@ -1,27 +1,34 @@
-Bamboo Status
--------------
+Coursera Videos Downloader
+--------------------------
 
-Checks your bamboo builds and notifies you in badge if they go red.
+Google chrome extension, that allow you download video materials from [http://coursera.org](http://coursera.org)
 
-![Bamboo status](https://github.com/ivan-dyachenko/bamboo-status/blob/master/readme/github.png?raw=true)
+![Coursera Videos Downloader](https://github.com/ivan-dyachenko/coursera-downloader/blob/master/readme/github.jpg?raw=true)
 
 Require features
 ----------------
 
-If you need new features or have any problems or suggestions please add it on [http://github/](https://github.com/ivan-dyachenko/bamboo-status/issues) !
+If you need new features or have any problems or suggestions please add it on [http://github/](https://github.com/ivan-dyachenko/coursera-downloader/issues) !
 
-This project is my own and nothing to do with Atlassian. All images property of Atlassian, taken from http://confluence.atlassian.com under the Creative Commons By License.
+Requirement
+----------------
+
+This extension uses experimental API of Chrome. You need to install [Chrome Dev channel](https://sites.google.com/a/chromium.org/dev/getting-involved/dev-channel).
+
+And enable `Experimental Extension APIs` in `chrome://flags/`
 
 How to build
 ------------
 
-Install [CoffeeScript](http://coffeescript.org/#installation)
+- Install [NodeJS](http://nodejs.org/)
+- Install [CoffeeScript](http://coffeescript.org/#installation)
 
 In your terminal run
 
 ```
-git clone git@github.com:ivan-dyachenko/bamboo-status.git
-cd ./Bamboo-status/src
+git clone git@github.com:ivan-dyachenko/coursera-downloader.git
+cd ./coursera-downloader
+npm install
 cake
 cake build
 ```
