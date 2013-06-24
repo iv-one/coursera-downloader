@@ -106,9 +106,7 @@ class SettingsController
     result
 
   downloadTask: (task) ->
-    filename = task.filename.replace(/.\[.*?\]/g, '')
-    filename = filename.replace(/\:/g, '')
-    params = {url: task.video, filename: filename}
+    params = {url: task.video, filename: task.filename.clear()}
     console.log params
     chrome.downloads.download params, (id) =>
       @tasksMap[id] = task
@@ -121,7 +119,11 @@ class SettingsController
         task.state = 'ok'
 
 String::interpolate = (values) ->
-  @replace /#{(\w*)}/g, (ph, key)->
+  @replace /#{(\w*)}/g, (ph, key) ->
     values[key]
+
+String::clear = () ->
+  str = @replace(/.\[.*?\]/g, '')
+  str.replace(/[\:\/\\,\?]+/g, '')
 
 SettingsController.$inject = ['$scope', 'store', 'classesService', '$timeout']
