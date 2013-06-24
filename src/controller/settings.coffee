@@ -106,7 +106,8 @@ class SettingsController
     result
 
   downloadTask: (task) ->
-    params = {url: task.video, filename: task.filename}
+    params = {url: task.video, filename: task.filename.replace(/.\[.*?\]/, '')}
+    console.log params
     chrome.downloads.download params, (id) =>
       @tasksMap[id] = task
 
