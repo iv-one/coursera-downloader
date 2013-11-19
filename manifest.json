@@ -1,6 +1,6 @@
 {
     "manifest_version" : 2,
-    "version"          : "1.1",
+    "version"          : "1.2",
     "name"             : "Coursera Downloader",
     "description"      : "Coursera Downloader",
     "background"       : {
@@ -16,7 +16,6 @@
     },
     "permissions"      : [
         "tabs",
-        "experimental",
         "downloads",
         "http://*/*",
         "https://*/*"
