@@ -10,17 +10,10 @@ Require features
 
 If you need new features or have any problems or suggestions please add it on [http://github/](https://github.com/ivan-dyachenko/coursera-downloader/issues) !
 
-Requirement
-----------------
-
-This extension uses experimental API of Chrome. You need to install [Chrome Dev channel](https://sites.google.com/a/chromium.org/dev/getting-involved/dev-channel).
-
-And enable `Experimental Extension APIs` in `chrome://flags/`
-
 How to install
 --------------
 
-Make sure, that you have installed Chrome Dev channel. In your terminal run
+In your terminal run
 
 ```
 git clone git@github.com:ivan-dyachenko/coursera-downloader.git
