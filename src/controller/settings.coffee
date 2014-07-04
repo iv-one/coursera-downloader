@@ -130,6 +130,6 @@ String::interpolate = (values) ->
 
 String::clear = () ->
   str = @replace(/.\[.*?\]/g, '')
-  str.replace(/[\:\/\\,\?]+/g, '')
+  str.replace(/[\:\/\\,\?"]+/g, '')
 
 SettingsController.$inject = ['$scope', 'store', 'classesService', '$timeout']
