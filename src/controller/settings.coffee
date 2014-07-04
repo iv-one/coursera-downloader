@@ -74,7 +74,9 @@ class SettingsController
       section: section.title,
       lecture: lecture.title,
       sectionIndex: sectionIndex,
-      lectureIndex: lectureIndex
+      lectureIndex: lectureIndex,
+      sectionNumber: sectionIndex + 1,
+      lectureNumber: lectureIndex + 1
 
   selected: (value) ->
     for section in @incomingTasks.sections
