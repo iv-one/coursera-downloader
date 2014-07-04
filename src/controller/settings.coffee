@@ -106,7 +106,13 @@ class SettingsController
     result
 
   downloadTask: (task) ->
-    params = {url: task.video, filename: task.filename.clear()}
+    name = task.filename
+    if @scope.subdirectory.length
+      name = @scope.subdirectory + "/" + name.clear()
+    else
+      name = name.clear()
+
+    params = {url: task.video, filename: name}
     console.log params
     chrome.downloads.download params, (id) =>
       @tasksMap[id] = task
