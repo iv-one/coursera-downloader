@@ -35,6 +35,15 @@
             padding-top: 60px;
         }
 
+        .section-heading {
+            font-size :16px;
+            font-weight: bold;
+        }
+
+        .lectures.unstyled {
+            margin-left:5px;
+        }
+
     </style>
     <link href="assets/vendors/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -122,8 +131,10 @@
 
         <ul class="unstyled">
             <li ng-repeat="(sectionIndex, section) in incomings.sections">
-                <span><b>{{section.title}}</b></span>
-                <ul class="unstyled">
+                <label class="checkbox section-heading" >
+                            <input type="checkbox"  ng-click="toggleSection(section)" ng-model="section.selected">{{section.title}}
+                </label>
+                <ul class="lectures unstyled">
                     <li ng-repeat="(lectureIndex, lecture) in section.lectures">
                         <label class="checkbox">
                             <input type="checkbox" ng-model="lecture.selected">{{filename(section, lecture,
@@ -131,6 +142,7 @@
                         </label>
                     </li>
                 </ul>
+                <hr />
             </li>
         </ul>
     </div>

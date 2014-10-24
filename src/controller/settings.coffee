@@ -19,6 +19,8 @@ class SettingsController
     $scope.uncompleted = () => @uncompleted()
     $scope.selectAll = () => @selected(true)
     $scope.selectNone = () => @selected(false)
+    $scope.toggleSection = (section) => 
+      section.lectures.map (lecture) -> lecture.selected = section.selected 
     $scope.cancel = () =>
       $('#incomingModal').modal('hide')
       @clearIncoming()
