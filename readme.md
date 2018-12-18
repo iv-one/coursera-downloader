@@ -1,3 +1,5 @@
+As of November 7th, 2014, I've decided to end my commitment to maintaining this repo and related.
+
 Coursera Videos Downloader
 --------------------------
 
